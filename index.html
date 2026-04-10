@@ -47,7 +47,8 @@
     },
     "knowsAbout": ["Web Design", "GoHighLevel", "Framer", "WordPress", "Webflow", "Shopify", "Figma", "UI/UX Design", "Marketing Funnels", "CRM Setup", "Marketing Automation"],
     "sameAs": [
-      "https://www.linkedin.com/in/adelajasamuel1",
+      "https://www.upwork.com/fl/adelajasamuel",
+      "https://www.linkedin.com/in/adelajasamuel",
       "https://samuel-faith.github.io/portfolio"
     ],
     "offers": {
@@ -78,6 +79,17 @@
     }
     @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
     .project-card:hover .project-thumb img{transform:scale(1.06);}
+    /* ── Image Protection ── */
+    img { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+    a.nav-logo, a.footer-logo { pointer-events: auto; }
+    .about-image-frame, .project-thumb, .about-badge .badge-icon { position: relative; }
+    .about-image-frame::after, .project-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      background: transparent;
+    }
   </style>
 </head>
 <body>
@@ -86,7 +98,7 @@
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">
-        <img src="./assets/logo.png" alt="Samuel Faith — Freelance Web Designer & GoHighLevel Specialist" style="height:38px; width:auto; display:block;" />
+        <img src="./assets/logo.jpg" alt="Samuel Faith — Freelance Web Designer & GoHighLevel Specialist" style="height:38px; width:auto; display:block;" />
       </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -713,6 +725,35 @@
 
     // Start after a short delay so page loads first
     setTimeout(type, 800);
+
+    // ── Image Protection ──
+    // Block right-click on images
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('contextmenu', e => e.preventDefault());
+      img.addEventListener('dragstart',   e => e.preventDefault());
+    });
+    // Block right-click site-wide (optional — remove if too aggressive)
+    document.addEventListener('contextmenu', e => {
+      if (e.target.tagName === 'IMG') e.preventDefault();
+    });
+    // Block common keyboard shortcuts for saving/inspecting images
+    document.addEventListener('keydown', e => {
+      // Block Ctrl+S / Cmd+S (save page)
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') e.preventDefault();
+      // Block Ctrl+U / Cmd+U (view source)
+      if ((e.ctrlKey || e.metaKey) && e.key === 'u') e.preventDefault();
+      // Block Ctrl+Shift+I / Cmd+Option+I (devtools) — partial deterrent
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'i') e.preventDefault();
+      // Block F12
+      if (e.key === 'F12') e.preventDefault();
+    });
+    // Re-apply protection to any dynamically added images
+    new MutationObserver(() => {
+      document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('contextmenu', e => e.preventDefault());
+        img.addEventListener('dragstart',   e => e.preventDefault());
+      });
+    }).observe(document.body, { childList: true, subtree: true });
 
     // Spinner keyframe
     const s = document.createElement('style');
