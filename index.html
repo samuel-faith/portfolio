@@ -11,6 +11,8 @@
   <meta name="author" content="Adelaja Samuel" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://samuel-faith.github.io/portfolio/" />
+  <link rel="icon" type="image/jpeg" href="./assets/logo.jpg" />
+  <link rel="apple-touch-icon" href="./assets/logo.jpg" />
 
   <!-- Open Graph (Facebook, LinkedIn, WhatsApp previews) -->
   <meta property="og:type" content="website" />
@@ -45,8 +47,7 @@
     },
     "knowsAbout": ["Web Design", "GoHighLevel", "Framer", "WordPress", "Webflow", "Shopify", "Figma", "UI/UX Design", "Marketing Funnels", "CRM Setup", "Marketing Automation"],
     "sameAs": [
-      "https://www.upwork.com/fl/adelajasamuel",
-      "https://www.linkedin.com/in/adelajasamuel",
+      "https://www.linkedin.com/in/adelajasamuel1",
       "https://samuel-faith.github.io/portfolio"
     ],
     "offers": {
@@ -64,6 +65,10 @@
   <link href="./styles.css" rel="stylesheet">
   <style>
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    a.nav-logo, a.footer-logo { display:flex; align-items:center; text-decoration:none; }
+    .nav-logo img, .footer-logo img { border-radius:4px; }
+    [data-theme="dark"] .nav-logo img,
+    [data-theme="dark"] .footer-logo img { filter: brightness(0.92) contrast(1.05); background:#fff; border-radius:4px; }
     .type-cursor{
       display:inline-block;
       color:var(--coral);
@@ -80,7 +85,9 @@
   <!-- ── Navigation ── -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
-      <div class="nav-logo">A<span>.</span>Samuel</div>
+      <a href="#hero" class="nav-logo">
+        <img src="./assets/logo.png" alt="Samuel Faith — Freelance Web Designer & GoHighLevel Specialist" style="height:38px; width:auto; display:block;" />
+      </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -538,7 +545,9 @@
 
   <!-- ── Footer ── -->
   <footer role="contentinfo">
-    <div class="footer-logo">A<span style="color:var(--coral)">.</span>Samuel</div>
+    <a href="#hero" class="footer-logo">
+      <img src="./assets/logo.jpg" alt="Samuel Faith Logo" style="height:32px; width:auto; display:block;" />
+    </a>
     <div class="footer-copy">© 2026 <strong>Adelaja Samuel</strong> · Freelance Web Designer & GoHighLevel Specialist · Available Worldwide</div>
     <div class="footer-links">
       <a href="#hero">Top</a>
