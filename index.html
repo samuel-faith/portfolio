@@ -6,25 +6,25 @@
 
   <!-- Primary SEO -->
   <title>Adelaja Samuel — Freelance Web Designer & GoHighLevel Specialist | Nigeria</title>
-  <meta name="description" content="Adelaja Samuel Faith is a freelance web designer and GoHighLevel specialist with 4+ years and 50+ projects on Upwork. I build high-converting websites, GHL funnels, and marketing automation systems for agencies and service businesses worldwide." />
+  <meta name="description" content="Adelaja Samuel is a freelance web designer and GoHighLevel specialist with 4+ years and 50+ projects on Upwork. I build high-converting websites, GHL funnels, and marketing automation systems for agencies and service businesses worldwide." />
   <meta name="keywords" content="freelance web designer, GoHighLevel specialist, GHL funnel builder, Framer designer, WordPress developer, Webflow designer, Shopify developer, landing page designer, CRM setup, marketing automation, GoHighLevel expert, GHL white label, web designer Nigeria, remote web designer" />
-  <meta name="author" content="Adelaja Samuel Faith" />
+  <meta name="author" content="Adelaja Samuel" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://samuel-faith.github.io/portfolio/" />
 
   <!-- Open Graph (Facebook, LinkedIn, WhatsApp previews) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://samuel-faith.github.io/portfolio/" />
-  <meta property="og:title" content="Adelaja Samuel Faith — Freelance Web Designer & GoHighLevel Specialist" />
+  <meta property="og:title" content="Adelaja Samuel — Freelance Web Designer & GoHighLevel Specialist" />
   <meta property="og:description" content="I build high-converting websites, GHL funnels, and marketing automation systems for agencies and service businesses worldwide. 4+ years · 50+ projects · Top-Rated on Upwork." />
   <meta property="og:image" content="https://samuel-faith.github.io/portfolio/assets/Adelaja Samuel.jpg" />
-  <meta property="og:image:alt" content="Adelaja Samuel Faith — Freelance Web Designer & GoHighLevel Specialist" />
+  <meta property="og:image:alt" content="Adelaja Samuel — Freelance Web Designer & GoHighLevel Specialist" />
   <meta property="og:site_name" content="Adelaja Samuel Portfolio" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Adelaja Samuel Faith— Freelance Web Designer & GoHighLevel Specialist" />
+  <meta name="twitter:title" content="Adelaja Samuel — Freelance Web Designer & GoHighLevel Specialist" />
   <meta name="twitter:description" content="I build high-converting websites, GHL funnels, and marketing automation systems for agencies and service businesses worldwide." />
   <meta name="twitter:image" content="https://samuel-faith.github.io/portfolio/assets/Adelaja Samuel.jpg" />
 
@@ -33,7 +33,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Adelaja Samuel Faith",
+    "name": "Adelaja Samuel",
     "jobTitle": "Freelance Web Designer & GoHighLevel Specialist",
     "description": "Freelance web designer and GoHighLevel specialist with 4+ years of experience building high-converting websites, landing pages, GHL funnels, and marketing automation systems for agencies and service businesses worldwide.",
     "url": "https://samuel-faith.github.io/portfolio",
@@ -45,7 +45,8 @@
     },
     "knowsAbout": ["Web Design", "GoHighLevel", "Framer", "WordPress", "Webflow", "Shopify", "Figma", "UI/UX Design", "Marketing Funnels", "CRM Setup", "Marketing Automation"],
     "sameAs": [
-      "https://www.linkedin.com/in/adelajasamuel1",
+      "https://www.upwork.com/fl/adelajasamuel",
+      "https://www.linkedin.com/in/adelajasamuel",
       "https://samuel-faith.github.io/portfolio"
     ],
     "offers": {
@@ -61,7 +62,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <link href="./styles.css" rel="stylesheet">
-  <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
+  <style>
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .type-cursor{
+      display:inline-block;
+      color:var(--coral);
+      font-weight:300;
+      animation:blink 0.75s step-end infinite;
+      margin-left:1px;
+    }
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    .project-card:hover .project-thumb img{transform:scale(1.06);}
+  </style>
 </head>
 <body>
 
@@ -107,7 +119,7 @@
         <div class="hero-eyebrow">Available for new projects</div>
         <h1 class="hero-title">
           <span class="sr-only">Freelance Web Designer & GoHighLevel Specialist — </span>I design websites<br>
-          <em>that convert</em><br>
+          <em>that <span id="typewriter"></span><span class="type-cursor">|</span></em><br>
           <span class="gradient-text">& close deals.</span>
         </h1>
         <p class="hero-desc">
@@ -354,7 +366,9 @@
 
         <div class="project-card fade-up">
           <div class="project-visual">
-            <div class="project-thumb thumb-4">🌿</div>
+            <div class="project-thumb thumb-4" style="background:none; padding:0;">
+              <img src="./assets/hvac-project.png" alt="Service Business WordPress Website Design — HVAC Company Louisville KY" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:top center; transition: transform 0.4s ease;" />
+            </div>
             <div class="project-overlay"><span class="overlay-link">View Project →</span></div>
           </div>
           <div class="project-body">
@@ -650,6 +664,46 @@
         showToast('Something went wrong. Please try again shortly.', false);
       });
     });
+
+    // ── Typewriter Effect ──
+    const typeWords   = ['convert', 'captivate', 'rank', 'perform', 'engage', 'sell'];
+    const typeEl      = document.getElementById('typewriter');
+    let wordIndex     = 0;
+    let charIndex     = 0;
+    let isDeleting    = false;
+    const typeSpeed   = 100;   // ms per character typed
+    const deleteSpeed = 55;    // ms per character deleted
+    const pauseAfter  = 1600; // ms to pause after full word
+
+    function type() {
+      const currentWord = typeWords[wordIndex];
+
+      if (!isDeleting) {
+        // Typing forward
+        typeEl.textContent = currentWord.slice(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentWord.length) {
+          // Word complete — pause then start deleting
+          isDeleting = true;
+          setTimeout(type, pauseAfter);
+          return;
+        }
+      } else {
+        // Deleting
+        typeEl.textContent = currentWord.slice(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          // Deleted — move to next word
+          isDeleting = false;
+          wordIndex  = (wordIndex + 1) % typeWords.length;
+        }
+      }
+
+      setTimeout(type, isDeleting ? deleteSpeed : typeSpeed);
+    }
+
+    // Start after a short delay so page loads first
+    setTimeout(type, 800);
 
     // Spinner keyframe
     const s = document.createElement('style');
